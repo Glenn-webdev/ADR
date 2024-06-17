@@ -7,6 +7,12 @@
 
 the proposed app will handle data for the client, services staff informaiton, scheduling, booking, payment history and other data needed for the app.
 
+## Decision Drivers
+
+* an open source that can hold large amount of data
+* can run pocedural SQL and triggers
+* free to use and with online support
+
 ## Considered Options
 
 * Mysql
