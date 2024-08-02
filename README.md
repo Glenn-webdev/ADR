@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
@@ -77,3 +78,40 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+=======
+Group Members 
+Glenn 
+Harman 
+Mahi
+Sehaj
+Jeffrey 
+
+Proposed Project App
+
+
+An app that can register nurses/medical staff and client can booked nearby registered nurses.
+MObile App Overview: 
+    this mobile app connects clients and registered medical staff like nurses, allowing client to book online, registered, and available nurses nearby. the app ensures all medical registered staff are fully verified by Medical and offer secure platform for both clients and healthcare providers. 
+
+
+
+functionalities
+- Nurse/caregiver/medical Registration
+create profile
+upload certificates and work experience
+- Client Registration
+-create profile and request services
+- Pay Online
+third party online integration
+invoicing
+- search and match
+-booking and scheduling
+- review ratings
+- Insurance claim integration (optional)
+-admin panel
+can review and approve registering nurses
+can delete/update registered nurse
+
+
+
+>>>>>>> 50ea1fd61829545c3a415ab65013d1507f403837
