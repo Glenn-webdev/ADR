@@ -1,33 +1,98 @@
-import { View } from "react-native";
-import { Button } from "react-native";
-import { StyleSheet } from "react-native";  
-export default function Home({navigation}) {
+import React from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
+export default function HomeScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Care Companion Services</Text>
+      <Text style={styles.subtitle}>
+        Exceptional service is something we never compromise on. With decades of
+        experience in providing integral care in their communities, our
+        professional teams will ensure that your safety and well-being come
+        first.
+      </Text>
+      <Button title="View our pricing" onPress={() => {}} />
+      <Text style={styles.servicesTitle}>Services offered</Text>
+      <View style={styles.servicesContainer}>
+        <View style={styles.serviceCard}>
+          <Text style={styles.serviceTitle}>Home Care</Text>
+          <Text style={styles.serviceDescription}>
+            We provide care and assistance for you to continue to experience
+            life at the highest level of enjoyment and quality and remain in
+            your own home.
+          </Text>
+        </View>
+        <View style={styles.serviceCard}>
+          <Text style={styles.serviceTitle}>Health Assist</Text>
+          <Text style={styles.serviceDescription}>
+            People often take for granted the things they do every day, like
+            climbing stairs, taking care of personal hygiene and even just
+            getting out of bed in the morning. But these things can become major
+            challenges as you age.
+          </Text>
+        </View>
+        <View style={styles.serviceCard}>
+          <Text style={styles.serviceTitle}>Others</Text>
+          <Text style={styles.serviceDescription}>
+            Even though every care situation is unique, Right at Home caregivers
+            are not only trained to be prepared, but they’re trained to help you
+            cope as well, so you can feel comfortable knowing your loved ones
+            are in good hands.
+          </Text>
+        </View>
+      </View>
+      <Button title="Contact Us" onPress={() => navigation.navigate('Contact')} />
+      <View style={styles.spacer} />
+      <Button title="Register" onPress={() => navigation.navigate('Register')} />
+    </View>
+  );
+}
 
-
-    
-
-    return (
-
-       <View styles={styles.container}>
-           <Button title ="About" onPress={() => navigation.navigate('About')} styles={styles.roundedbtn}/>
-            <Button title ="Contact" onPress={() => navigation.navigate('Contact')} styles={styles.btn}/> 
-            <Button title="Register" onPress={() => navigation.navigate('Register')}/>              
-            
-       </View>
-    )
-};
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'flex-start',
-        paddingRight: 10,
-    },
-    roundedbtn: {
-       flex: 1,
-        alignItems: 'flex-start',
-        color: 'red',
-        roundedbtn: 10,
-    }
-})
-
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#90EE90',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 16,
+    marginBottom: 16,
+  },
+  servicesTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  servicesContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  serviceCard: {
+    width: 100,
+    backgroundColor: '#fff',
+    padding: 8,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 1 },
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  serviceTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginBottom: 4,
+  },
+  serviceDescription: {
+    fontSize: 14,
+  },
+  spacer: {
+    height: 20,
+  },
+});
