@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowRadius: 2,
     elevation: 2,
+    marginBottom: 16,
   },
   contactTitle: {
     fontWeight: 'bold',

@@ -1,7 +1,13 @@
-import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
+  const [visibleService, setVisibleService] = useState(null);
+
+  const toggleServiceVisibility = (service) => {
+    setVisibleService(visibleService === service ? null : service);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Care Companion Services</Text>
@@ -14,36 +20,42 @@ export default function HomeScreen({ navigation }) {
       <Button title="View our pricing" onPress={() => {}} />
       <Text style={styles.servicesTitle}>Services offered</Text>
       <View style={styles.servicesContainer}>
-        <View style={styles.serviceCard}>
+        <TouchableOpacity style={styles.serviceCard} onPress={() => toggleServiceVisibility('homeCare')}>
           <Text style={styles.serviceTitle}>Home Care</Text>
-          <Text style={styles.serviceDescription}>
-            We provide care and assistance for you to continue to experience
-            life at the highest level of enjoyment and quality and remain in
-            your own home.
-          </Text>
-        </View>
-        <View style={styles.serviceCard}>
+          {visibleService === 'homeCare' && (
+            <Text style={styles.serviceDescription}>
+              We provide care and assistance for you to continue to experience
+              life at the highest level of enjoyment and quality and remain in
+              your own home.
+            </Text>
+          )}
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.serviceCard} onPress={() => toggleServiceVisibility('healthAssist')}>
           <Text style={styles.serviceTitle}>Health Assist</Text>
-          <Text style={styles.serviceDescription}>
-            People often take for granted the things they do every day, like
-            climbing stairs, taking care of personal hygiene and even just
-            getting out of bed in the morning. But these things can become major
-            challenges as you age.
-          </Text>
-        </View>
-        <View style={styles.serviceCard}>
+          {visibleService === 'healthAssist' && (
+            <Text style={styles.serviceDescription}>
+              People often take for granted the things they do every day, like
+              climbing stairs, taking care of personal hygiene and even just
+              getting out of bed in the morning. But these things can become major
+              challenges as you age.
+            </Text>
+          )}
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.serviceCard} onPress={() => toggleServiceVisibility('others')}>
           <Text style={styles.serviceTitle}>Others</Text>
-          <Text style={styles.serviceDescription}>
-            Even though every care situation is unique, Right at Home caregivers
-            are not only trained to be prepared, but they’re trained to help you
-            cope as well, so you can feel comfortable knowing your loved ones
-            are in good hands.
-          </Text>
-        </View>
+          {visibleService === 'others' && (
+            <Text style={styles.serviceDescription}>
+              Even though every care situation is unique, Right at Home caregivers
+              are not only trained to be prepared, but they’re trained to help you
+              cope as well, so you can feel comfortable knowing your loved ones
+              are in good hands.
+            </Text>
+          )}
+        </TouchableOpacity>
       </View>
-      <Button title="Contact Us" onPress={() => navigation.navigate('Contact')} />
-      <View style={styles.spacer} />
       <Button title="Register" onPress={() => navigation.navigate('Register')} />
+      <View style={styles.spacer} />
+      <Button title="Contact Us" onPress={() => navigation.navigate('Contact')} />
     </View>
   );
 }
@@ -74,17 +86,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   serviceCard: {
-    width: 100,
+    width: 110,
     backgroundColor: '#fff',
-    padding: 8,
+    padding: 6,
     borderRadius: 8,
     shadowColor: '#000',
     shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 1 },
     shadowRadius: 2,
     elevation: 2,
+    marginBottom: 12,
   },
   serviceTitle: {
+    textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 16,
     marginBottom: 4,

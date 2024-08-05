@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 export default function RegisterScreen({ navigation }) {
   const [firstName, setFirstName] = useState('');
@@ -11,10 +12,19 @@ export default function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [date, setDate] = useState(new Date());
 
   const handleRegister = () => {
     // Here you can handle the registration process
     alert('User registered!');
+  };
+
+  const onChangeDate = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShowDatePicker(Platform.OS === 'ios');
+    setDate(currentDate);
+    setBirthDay(currentDate.toISOString().split('T')[0]); // Format date as yyyy-mm-dd
   };
 
   return (
@@ -38,12 +48,23 @@ export default function RegisterScreen({ navigation }) {
         onChangeText={setMiddleName}
         placeholder="Middle Name"
       />
-      <TextInput
-        style={styles.input}
-        value={birthDay}
-        onChangeText={setBirthDay}
-        placeholder="yyyy-mm-dd"
-      />
+      <TouchableOpacity onPress={() => setShowDatePicker(true)}>
+        <TextInput
+          style={styles.input}
+          value={birthDay}
+          placeholder="yyyy-mm-dd"
+          editable={false}
+        />
+      </TouchableOpacity>
+      {showDatePicker && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode="date"
+          display="default"
+          onChange={onChangeDate}
+        />
+      )}
       <TextInput
         style={styles.input}
         value={address}
@@ -105,6 +126,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     padding: 10,
     width: '80%',
+    backgroundColor: '#fff',
   },
   spacer: {
     height: 20,
