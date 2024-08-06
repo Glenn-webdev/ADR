@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Button, TextInput } from 'react-native';
-
+//
 const PricingScreen = ({ navigation }) => {
   return (
     <ScrollView style={styles.container}>
