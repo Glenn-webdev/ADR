@@ -33,7 +33,7 @@ export default function ContactScreen({ navigation }) {
     </View>
   );
 }
-
+// Styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,
