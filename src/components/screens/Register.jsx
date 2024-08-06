@@ -25,6 +25,7 @@ export default function RegisterScreen({ navigation }) {
     setShowDatePicker(Platform.OS === 'ios');
     setDate(currentDate);
     setBirthDay(currentDate.toISOString().split('T')[0]); // Format date as yyyy-mm-dd
+    setShowDatePicker(false); // Close the picker after selecting a date
   };
 
   return (
@@ -48,13 +49,16 @@ export default function RegisterScreen({ navigation }) {
         onChangeText={setMiddleName}
         placeholder="Middle Name"
       />
-      <TouchableOpacity onPress={() => setShowDatePicker(true)}>
-        <TextInput
-          style={styles.input}
-          value={birthDay}
-          placeholder="yyyy-mm-dd"
-          editable={false}
-        />
+      <TouchableOpacity onPress={() => setShowDatePicker(true)} style={styles.input}>
+        <View pointerEvents="none">
+          <TextInput
+            style={styles.dateInput}
+            value={birthDay}
+            placeholder="yyyy-mm-dd"
+            editable={false}
+            placeholderTextColor="gray"
+          />
+        </View>
       </TouchableOpacity>
       {showDatePicker && (
         <DateTimePicker
@@ -127,6 +131,11 @@ const styles = StyleSheet.create({
     padding: 10,
     width: '80%',
     backgroundColor: '#fff',
+  },
+  dateInput: {
+    height: 40, // Ensure the date input has the same height
+    color: 'gray',
+    width: '100%', // Ensure it takes the full width of the container
   },
   spacer: {
     height: 20,
