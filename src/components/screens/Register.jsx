@@ -17,7 +17,7 @@ export default function Register({navigation}) {
 
     return (
      <>
-            <Button title ="Home" onPress={() => navigation.navigate('Home')}/>
+           
                 <Text>Register Here</Text>
                 <SafeAreaView style={styles.container}>
       <TextInput
