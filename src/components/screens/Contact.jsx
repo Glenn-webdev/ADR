@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-
+import RoundedButton from '../mycomponent/roundedButtons';
+//
 export default function ContactScreen({ navigation }) {
   return (
     <View style={styles.container}>
@@ -8,7 +9,7 @@ export default function ContactScreen({ navigation }) {
       <Text style={styles.subtitle}>
         Send us a message, and we’ll be happy to get you the information you need or quickly connect you with your Care Companion Planner.
       </Text>
-      <Button title="View our pricing" onPress={() => {}} />
+      <RoundedButton title="View our Pricing" onPress={() => navigation.navigate('Pricing')} />
       <View style={styles.contactsContainer}>
         <View style={styles.contactCard}>
           <Text style={styles.contactTitle}>Offices</Text>
@@ -29,8 +30,14 @@ export default function ContactScreen({ navigation }) {
           <Text style={styles.contactInfo}>Email Address: carecompanion@gmail.com</Text>
         </View>
       </View>
-      <Button title="Home" onPress={() => navigation.navigate('Home')} />
+      <View>
+      <RoundedButton title="Back" onPress={() => navigation.navigate('Home')} />
+        
+        </View>      
     </View>
+   
+
+
   );
 }
 // Styling

@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
 
 
-
+//
 export default function ContactScreen({navigation}) {
     const [duckData, setDuckdata] = useState(null);
     const [newDuck, setNewDuck] = useState(0);
