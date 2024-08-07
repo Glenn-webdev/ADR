@@ -33,7 +33,7 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.serviceCard}>  
           
         <Image
-            source={require('../images/homecare.jpg')} // Replace with your image path
+            source={require('../images/homecare.jpg')} 
             style={styles.serviceCardImage} />
 
 

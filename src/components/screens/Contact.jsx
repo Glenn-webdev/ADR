@@ -1,35 +1,83 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet,Image } from 'react-native';
 import RoundedButton from '../mycomponent/roundedButtons';
+import SwiperContainer from '../mycomponent/swiperContainer';
+import styles from '../style/styles';
+import { Linking } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+
 //
 export default function ContactScreen({ navigation }) {
   return (
+
     <View style={styles.container}>
-      <Text style={styles.title}>Care Companion Contacts</Text>
-      <Text style={styles.subtitle}>
-        Send us a message, and we’ll be happy to get you the information you need or quickly connect you with your Care Companion Planner.
-      </Text>
-      <RoundedButton title="View our Pricing" onPress={() => navigation.navigate('Pricing')} />
-      <View style={styles.contactsContainer}>
-        <View style={styles.contactCard}>
-          <Text style={styles.contactTitle}>Offices</Text>
-          <Text style={styles.contactInfo}>- Calgary, Alberta</Text>
-          <Text style={styles.contactInfo}>- Vancouver, British Columbia</Text>
-          <Text style={styles.contactInfo}>- Toronto, Ontario</Text>
+      <Text style={styles.title}>Care Companion</Text>
+      
+    
+      <Text style={styles.servicesTitle}>Contact Us</Text> 
+      <View style={styles.swipableContainer}>
+      
+      
+      <SwiperContainer>
+        <View style={styles.serviceCard}>    
+        
+
+        
+          <Text style={styles.serviceTitle}>We love to hear from you!</Text>
+          
+
+          <View style={styles.serviceDescription}>
+            <View>
+              <TouchableOpacity onPress={() => Linking.openURL('tel:+1234567890')} style={styles.contactLink}>
+                <Image
+                 style={styles.icon}
+                 source={require('../images/phoneicon.png')} // Replace with your image path
+                />
+                <Text style={styles.contactDetails}>+1 (234) 567-890</Text>
+             </TouchableOpacity>
+          </View>
+         </View>       
+       
+      
         </View>
-        <View style={styles.contactCard}>
-          <Text style={styles.contactTitle}>Media</Text>
-          <Text style={styles.contactInfo}>facebook: CareCompanion@facebook.com</Text>
-          <Text style={styles.contactInfo}>instagram: CareCompanion@instagram.com</Text>
-          <Text style={styles.contactInfo}>twitter: CareCompanion@twitter.com</Text>
+        <View style={styles.serviceCard}>
+          <View style={styles.serviceDescription}>
+     
+        <TouchableOpacity onPress={() => Linking.openURL('mailto:info@carecompanion')} style={styles.contactLink}>
+        
+         
+            <Text style={styles.contactDetails}>info@carecompanion</Text>
+            </TouchableOpacity>
+            </View>
+         </View>
+        
+       
+         
+       
+   
+
+
+
+
+
+
+        <View style={styles.serviceCard}>
+          
+          <Text style={styles.serviceDescription}>
+            Even though every care situation is unique, Right at Home caregivers
+            are not only trained to be prepared, but they’re trained to help you
+            cope as well, so you can feel comfortable knowing your loved ones
+            are in good hands.
+          </Text>
         </View>
-        <View style={styles.contactCard}>
-          <Text style={styles.contactTitle}>Phone</Text>
-          <Text style={styles.contactInfo}>Landline: +1 587 123456789</Text>
-          <Text style={styles.contactInfo}>Landline: +1 587 987654321</Text>
-          <Text style={styles.contactInfo}>Email Address: carecompanion@gmail.com</Text>
-        </View>
+      </SwiperContainer>
       </View>
+    
+
+
+
+
+
       <View>
       <RoundedButton title="Back" onPress={() => navigation.navigate('Home')} />
         
@@ -41,7 +89,7 @@ export default function ContactScreen({ navigation }) {
   );
 }
 // Styling
-const styles = StyleSheet.create({
+const myStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,

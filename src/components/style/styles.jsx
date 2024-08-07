@@ -97,6 +97,25 @@ const styles = StyleSheet.create({
   
 
   },
+
+  contactDetails: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    textAlign: 'left',
+  },
+
+
+
+
+  icon: {
+    width: 40,
+    height: 40,
+  },
+  contactLink: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });
 
 export default styles;

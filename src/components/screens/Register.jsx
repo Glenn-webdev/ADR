@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import RoundedButton from '../mycomponent/roundedButtons';
+import styles from '../style/styles';
 //
 export default function RegisterScreen({ navigation }) {
   const [firstName, setFirstName] = useState('');
@@ -103,14 +105,17 @@ export default function RegisterScreen({ navigation }) {
         placeholder="Confirm Password"
         secureTextEntry
       />
-      <Button title="Register" onPress={handleRegister} />
-      <View style={styles.spacer} />
-      <Button title="Home" onPress={() => navigation.navigate('Home')} />
+     <View style={styles.bottomContainer}>
+        <RoundedButton title="Submit" onPress={() => navigation.navigate('')} />
+        
+      </View>
+
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+
+const mystyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
